@@ -110,16 +110,17 @@
 .app-icon, .dock-icon {
   width: 60px; height: 60px;
   border-radius: 15px;
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; font-weight: 700; font-size: 14px;
+  overflow: hidden;
+  background: none;
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  padding: 0;
 }
-.wa { background: #25D366; }
-.photos { background: linear-gradient(135deg, #fff, #ddd); color: #000; }
-.x { background: #000; border: 1px solid #333; }
-.ig { background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf); }
-.cam { background: #8e8e93; }
-.netflix { background: #E50914; font-size: 28px; }
+.app-icon img, .dock-icon img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 15px;
+}
 
 .dock {
   position: absolute; bottom: 12px; left: 10px; right: 10px;
@@ -130,10 +131,6 @@
   display: flex; justify-content: space-around; align-items: center;
 }
 .dock-icon { width: 60px; height: 60px; position: relative; }
-.phone { background: #34C759; border-radius: 15px; }
-.safari { background: #fff; color: #007AFF; border-radius: 15px; }
-.messages { background: #34C759; border-radius: 15px; }
-.music { background: #FC3C44; border-radius: 15px; }
 
 .badge {
   position: absolute; top: -8px; right: -8px;
@@ -206,38 +203,37 @@
 </div>
 <div class="apps-grid simple">
   <div class="app">
-    <div class="app-icon wa">WA</div>
+    <div class="app-icon"><img src="https://img.icons8.com/color/96/whatsapp--v1.png"></div>
     <span>WhatsApp</span>
   </div>
   <div class="app">
-    <div class="app-icon photos">Photos</div>
+    <div class="app-icon"><img src="https://img.icons8.com/color/96/pictures.png"></div>
     <span>Photos</span>
   </div>
   <div class="app">
-    <div class="app-icon x">X</div>
+    <div class="app-icon"><img src="https://img.icons8.com/color/96/twitterx.png"></div>
     <span>X</span>
   </div>
   <div class="app">
-    <div class="app-icon ig">IG</div>
+    <div class="app-icon"><img src="https://img.icons8.com/color/96/instagram-new--v1.png"></div>
     <span>Instagram</span>
   </div>
   <div class="app">
-    <div class="app-icon cam">Cam</div>
+    <div class="app-icon"><img src="https://img.icons8.com/color/96/camera.png"></div>
     <span>Kamera</span>
   </div>
   <div class="app">
-    <div class="app-icon netflix">N</div>
+    <div class="app-icon"><img src="https://img.icons8.com/color/96/netflix.png"></div>
     <span>Netflix</span>
   </div>
 </div>
 
 <div class="search-pill">Q Search</div>
-
 <div class="dock">
-  <div class="dock-icon phone">Phone</div>
-  <div class="dock-icon safari">Safari</div>
-  <div class="dock-icon messages">Chat <span class="badge">21</span></div>
-  <div class="dock-icon music">Music</div>
+<div class="dock-icon"><img src="https://img.icons8.com/color/96/phone.png"></div>
+<div class="dock-icon"><img src="https://img.icons8.com/color/96/safari.png"></div>
+<div class="dock-icon"><img src="https://img.icons8.com/color/96/messages.png"></div>
+<div class="dock-icon"><img src="https://img.icons8.com/color/96/apple-music.png"></div>
 </div>
    
 <script>
