@@ -14,6 +14,10 @@
     background:url('cover%201.jpg') center/cover no-repeat;
     color:#000; overflow:hidden;
   }
+     .homescreen {
+  position:absolute; inset:0;
+  background:url('homescreen.jpg') center/cover no-repeat;
+  }
   .statusbar {
     position:absolute; top:0; left:0; right:0;
     display:flex; justify-content:space-between; align-items:center;
@@ -70,20 +74,75 @@
     position:absolute; left:0; right:0; bottom:90px;
     text-align:center; display:none; z-index:8;
   }
-  .passcode h3 { font-size:17px; margin-bottom:12px; font-weight:600; }
+  .passcode h3 { font-size:17px; margin-bottom:12px; font-weight:600; colour:#fff }
   .dots { display:flex; justify-content:center; gap:12px; margin-bottom:18px; }
-  .dot { width:10px; height:10px; border-radius:50%; border:1.5px solid #000; background:transparent; }
-  .dot.filled { background:#000; }
+  .dot { width:10px; height:10px; border-radius:50%; border:1.5px solid #fff; background:transparent; }
+  .dot.filled { background:#fff; }
   .pad {
     display:grid; grid-template-columns:repeat(3, 72px);
     gap:14px; justify-content:center;
   }
   .pad button {
     width:72px; height:72px; border-radius:50%; border:none;
-    background:rgba(0,0,0,0.18); backdrop-filter:blur(6px);
-    font-size:30px; font-weight:400; color:#000;
+    background:rgba(255,255,255,0.25); backdrop-filter:blur(6px);
+    font-size:30px; font-weight:400; color:#fff;
   }
-  .pad button:active { background:rgba(0,0,0,0.3); }
+  .pad button:active { background:rgba(255,255,255,0.4); }
+   .apps-grid.simple {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px 10px;
+  padding: 60px 16px 0 16px;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.app span {
+  color: #fff;
+  font-size: 12px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+}
+
+.app-icon, .dock-icon {
+  width: 60px; height: 60px;
+  border-radius: 15px;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 700; font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+.wa { background: #25D366; }
+.photos { background: linear-gradient(135deg, #fff, #ddd); color: #000; }
+.x { background: #000; border: 1px solid #333; }
+.ig { background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf); }
+.cam { background: #8e8e93; }
+.netflix { background: #E50914; font-size: 28px; }
+
+.dock {
+  position: absolute; bottom: 12px; left: 10px; right: 10px;
+  height: 78px;
+  background: rgba(255,255,255,0.22);
+  backdrop-filter: blur(15px);
+  border-radius: 26px;
+  display: flex; justify-content: space-around; align-items: center;
+}
+.dock-icon { width: 60px; height: 60px; position: relative; }
+.phone { background: #34C759; border-radius: 15px; }
+.safari { background: #fff; color: #007AFF; border-radius: 15px; }
+.messages { background: #34C759; border-radius: 15px; }
+.music { background: #FC3C44; border-radius: 15px; }
+
+.badge {
+  position: absolute; top: -8px; right: -8px;
+  background: red; color: #fff;
+  font-size: 12px; font-weight: 700;
+  min-width: 22px; height: 22px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+}
 </style>
 </head>
 <body>
@@ -140,7 +199,42 @@
   <div class="swipe" id="swipeText">Swipe up to open</div>
   <div class="home-bar"></div>
 </div>
+<div class="apps-grid simple">
+  <div class="app">
+    <div class="app-icon wa">WA</div>
+    <span>WhatsApp</span>
+  </div>
+  <div class="app">
+    <div class="app-icon photos">Photos</div>
+    <span>Photos</span>
+  </div>
+  <div class="app">
+    <div class="app-icon x">X</div>
+    <span>X</span>
+  </div>
+  <div class="app">
+    <div class="app-icon ig">IG</div>
+    <span>Instagram</span>
+  </div>
+  <div class="app">
+    <div class="app-icon cam">Cam</div>
+    <span>Kamera</span>
+  </div>
+  <div class="app">
+    <div class="app-icon netflix">N</div>
+    <span>Netflix</span>
+  </div>
+</div>
 
+<div class="search-pill">Q Search</div>
+
+<div class="dock">
+  <div class="dock-icon phone">Phone</div>
+  <div class="dock-icon safari">Safari</div>
+  <div class="dock-icon messages">Chat <span class="badge">21</span></div>
+  <div class="dock-icon music">Music</div>
+</div>
+   
 <script>
   function updateClock(){
     const now = new Date();
