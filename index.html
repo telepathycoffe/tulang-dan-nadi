@@ -280,17 +280,16 @@
     <div class="dot"></div>
   </div>
   <div class="pad">
-    <button onclick="addDigit(1)">1</button>
-    <button onclick="addDigit(2)">2</button>
-    <button onclick="addDigit(3)">3</button>
-    <button onclick="addDigit(4)">4</button>
-    <button onclick="addDigit(5)">5</button>
-    <button onclick="addDigit(6)">6</button>
-    <button onclick="addDigit(7)">7</button>
-    <button onclick="addDigit(8)">8</button>
-    <button onclick="addDigit(9)">9</button>
-    <button style="background:transparent;"></button>
-    <button onclick="addDigit(0)">0</button>
+    <button onclick="enterDigit(1)">1</button>
+<button onclick="enterDigit(2)">2</button>
+<button onclick="enterDigit(3)">3</button>
+<button onclick="enterDigit(4)">4</button>
+<button onclick="enterDigit(5)">5</button>
+<button onclick="enterDigit(6)">6</button>
+<button onclick="enterDigit(7)">7</button>
+<button onclick="enterDigit(8)">8</button>
+<button onclick="enterDigit(9)">9</button>
+<button onclick="enterDigit(0)">0</button>
     <button style="background:transparent; font-size:22px;" onclick="deleteDigit()">⌫</button>
   </div>
 </div>
@@ -324,15 +323,43 @@
   setInterval(updateClock, 1000);
 
   let code = "";
-  const CORRECT_PASS = "199597";
+const CORRECT_PASS = "199597";
 
-  function showPasscode(){
-    document.getElementById('passcodeUI').style.display = 'block';
-    document.getElementById('swipeText').style.display = 'none';
+function showPasscode(){
+  document.getElementById('passcodeUI').style.display = 'block';
+  document.getElementById('swipeText').style.display = 'none';
+}
+
+function updateDots(){
+  let dots = document.querySelectorAll('.dot');
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('filled', i < code.length);
+  });
+}
+
+function enterDigit(d){
+  if(code.length < 6){
+    code += d;
+    updateDots();
   }
+  if(code.length === 6){
+    if(code === CORRECT_PASS){
+      document.querySelector('.lockscreen').style.display = 'none';
+    } else {
+      alert('Password salah');
+      code = "";
+      updateDots();
+    }
+  }
+}
 
-  document.getElementById('lock').addEventListener('touchstart', showPasscode);
-  document.getElementById('lock').addEventListener('click', showPasscode);
+function deleteDigit(){
+  code = code.slice(0, -1);
+  updateDots();
+}
+
+document.getElementById('lock').addEventListener('touchstart', showPasscode);
+document.getElementById('lock').addEventListener('click', showPasscode);
 
   function updateDots(){
     const dots = document.querySelectorAll('#dots .dot');
