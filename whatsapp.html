@@ -28,7 +28,15 @@
     </div>
     <span class="wa-time">13.01</span>
   </div>
-
+     
+<div class="wa-chat">
+    <img src="homescreen.jpg" class="wa-ava">
+    <div class="wa-info">
+      <b>arash</b>
+      <p>aku sayang kamu</p>
+    </div>
+    <span class="wa-time">13.01</span>
+  </div>
   <div class="wa-chat">
     <div class="wa-ava">A</div>
     <div class="wa-info">
@@ -64,12 +72,27 @@
     </div>
     <span>Chats</span>
   </a>
-  <a href="index.html" class="wa-dock-item">
-    <div class="wa-dock-icon you-icon">
-  <img src="rajatu.jpg" alt="You">
-    </div>
-    <span>You</span>
-  </a>
+<div class="wa-dock-item">
+  <div class="wa-dock-icon you-icon">
+    <img src="rajatu.jpg" alt="You">
+  </div>
+  <span>You</span>
 </div>
+<div class="home-indicator"></div>
+
+<script>
+  let startY = 0;
+  document.addEventListener('touchstart', function(e) {
+    startY = e.changedTouches[0].screenY;
+  }, {passive: true});
+
+  document.addEventListener('touchend', function(e) {
+    let endY = e.changedTouches[0].screenY;
+    // swipe up dari bawah
+    if (startY - endY > 50 && startY > window.innerHeight - 120) {
+      window.location.href = 'home.html';
+    }
+  }, {passive: true});
+</script>
 </body>
 </html>
