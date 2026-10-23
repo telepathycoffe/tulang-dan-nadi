@@ -50,7 +50,11 @@ body { margin: 0; font-family: -apple-system, sans-serif; background: #fff; }
   font-size: 22px;
   position: relative;
 }
-
+.wa-dock-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
 .wa-dock-item.active .wa-dock-icon {
   background: #111b21;
   color: white;
