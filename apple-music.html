@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search - Apple Music</title>
+<style>
+  body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding-bottom: 110px;
+  }
+
+  .statusbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 24px 0;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px 0;
+  }
+  .header h1 {
+    font-size: 34px;
+    font-weight: 800;
+    margin: 0;
+  }
+  .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #3a3a3c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    border: 1.5px solid #555;
+  }
+
+  .search-bar {
+    margin: 14px 20px;
+    background: #1c1c1e;
+    border-radius: 12px;
+    padding: 12px 14px;
+    color: #98989d;
+    font-size: 15px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 4px 20px;
+  }
+
+  .tile {
+    height: 110px;
+    border-radius: 16px;
+    padding: 14px;
+    font-weight: 700;
+    font-size: 17px;
+    display: flex;
+    align-items: flex-end;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .tile span { position: relative; z-index: 2; }
+
+  .t-radio { background: #e50038; }
+  .t-kpop { background: #ff7aa2; }
+  .t-indo { background: #3b5bff; }
+  .t-pop { background: #ff8fa8; }
+  .t-alt { background: #d9b800; color: #fff; }
+  .t-rock { background: #ff6b35; }
+  .t-rnb { background: #9b6bff; }
+  .t-hiphop { background: #6aa8ff; }
+  .t-dance { background: #00c853; }
+  .t-charts { background: #6b7a00; }
+  .t-sing { background: #ff5a6e; }
+  .t-dj { background: linear-gradient(135deg, #ff00ff, #00ffff, #ffcc00); color: #000; }
+
+  .now-playing {
+    position: fixed;
+    bottom: 70px;
+    left: 12px;
+    right: 12px;
+    background: #2c2c2e;
+    border-radius: 14px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 99;
+  }
+  .np-thumb {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
+  }
+  .np-info { flex: 1; min-width: 0; }
+  .np-info b { display: block; font-size: 14px; }
+  .np-info p { margin: 0; font-size: 12px; color: #98989d; }
+
+  .tabbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+    border-top: 1px solid #2c2c2e;
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0 24px;
+    z-index: 100;
+  }
+  .tabbar div { font-size: 22px; color: #98989d; }
+  .tabbar div.active { color: #fff; }
+</style>
+</head>
+<body>
+
+<div class="statusbar">
+  <span>14.43</span>
+  <span>📶 📡 🔋</span>
+</div>
+
+<div class="header">
+  <h1>Search</h1>
+  <div class="avatar">NM</div>
+</div>
+
+<div class="search-bar">🔍 Artists, Songs, Lyrics, and More</div>
+
+<div class="grid">
+  <div class="tile t-radio"><span>Apple Music Radio</span></div>
+  <div class="tile t-kpop"><span>K-Pop</span></div>
+  <div class="tile t-indo"><span>Indonesian Music</span></div>
+  <div class="tile t-pop"><span>Pop</span></div>
+  <div class="tile t-alt"><span>Alternative</span></div>
+  <div class="tile t-rock"><span>Rock</span></div>
+  <div class="tile t-rnb"><span>R&B</span></div>
+  <div class="tile t-hiphop"><span>Hip-Hop/Rap</span></div>
+  <div class="tile t-dance"><span>Dance</span></div>
+  <div class="tile t-charts"><span>Charts</span></div>
+  <div class="tile t-sing"><span>Sing</span></div>
+  <div class="tile t-dj"><span>DJ with Apple Music</span></div>
+</div>
+
+<div class="now-playing">
+  <div class="np-thumb"></div>
+  <div class="np-info">
+    <b>lovely</b>
+    <p>Billie Eilish & Khalid</p>
+  </div>
+  <div style="font-size:18px;">▶️</div>
+</div>
+
+<div class="tabbar">
+  <div>⌂</div>
+  <div class="active">🔍</div>
+</div>
+
+</body>
+</html>
