@@ -13,14 +13,6 @@
     padding-bottom: 150px;
   }
 
-  .statusbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 14px 24px 0;
-    font-size: 15px;
-    font-weight: 600;
-  }
-
   .header {
     display: flex;
     justify-content: space-between;
@@ -39,16 +31,12 @@
     background: #1c1c1e; border-radius: 12px;
     padding: 11px 14px; color: #98989d; font-size: 15px;
     display: flex; gap: 8px; align-items: center;
-  }
-  .icon-search {
-    width: 16px; height: 16px; border: 2px solid #98989d;
-    border-radius: 50%; position: relative; flex-shrink: 0;
-  }
-  .icon-search::after {
-    content: ''; position: absolute; width: 2.5px; height: 8px;
-    background: #98989d; border-radius: 2px; transform: rotate(45deg);
-    bottom: -8px; right: -5px;
-  }
+ }
+    .search-icon-svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
 
   .grid {
     display: grid;
@@ -131,18 +119,16 @@
 </head>
 <body>
 
-<div class="statusbar">
-  <span>14.43</span>
-  <span>◫ 📶 📡 🔋</span>
-</div>
-
 <div class="header">
   <h1>Search</h1>
   <div class="avatar">NM</div>
 </div>
 
 <div class="search-bar">
-  <div class="icon-search"></div>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#98989d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+  <circle cx="11" cy="11" r="7"></circle>
+  <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+</svg>
   <span>Artists, Songs, Lyrics, and More</span>
 </div>
 
