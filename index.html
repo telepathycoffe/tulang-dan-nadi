@@ -130,30 +130,17 @@
   border-radius: 26px;
   display: flex; justify-content: space-around; align-items: center;
 }
-   .page-dots {
-  position: absolute;
-  bottom: 105px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  align-items: center;
-  background: rgba(142,142,147,0.3);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 6px 12px;
-  border-radius: 20px;
-}
-.dot {
+   .page-dots .dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(120,120,128,0.6);
+  background: #8e8e93 !important;
+  opacity: 0.6;
 }
 
-.dot.active {
-  background: white;
+.page-dots .dot.active {
+  background: #ffffff !important;
+  opacity: 1;
 }
 .dock-icon {
   width: 60px;
