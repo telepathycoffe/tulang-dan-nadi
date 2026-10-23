@@ -57,6 +57,36 @@
     height: 60px;
     margin-bottom: 0;
   }
+.dock .app img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 0;
+}
+
+.dots {
+  position: fixed;
+  bottom: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+  padding: 6px 12px;
+  border-radius: 20px;
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+}
+
+.dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+}
+
+.dots span.active {
+  background: white;
+}
 </style>
 </head>
 <body>
@@ -72,12 +102,12 @@
     <a class="app" href="#"><img src="youtube.png">YouTube</a>
     <a class="app" href="#"><img src="bca.png">BCA mobile</a>
   </div>
-
+  <div class="dots"><span class="active"></span><span></span></div>
   <div class="dock">
     <a class="app" href="#"><img src="telepon.png"></a>
     <a class="app" href="#"><img src="safari.png"></a>
     <a class="app" href="#"><img src="message.png"></a>
-    <a class="app" href="whatsapp.html"><img src="appmus.png"></a>
+    <a class="app" href="#"><img src="appmus.png"></a>
   </div>
 </body>
 </html>
