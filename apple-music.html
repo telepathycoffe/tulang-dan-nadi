@@ -13,60 +13,41 @@
     padding-bottom: 150px;
   }
 
+  .statusbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 24px 0;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 20px 0;
+    padding: 8px 20px 0;
   }
-  .header h1 {
-    font-size: 34px;
-    font-weight: 800;
-    margin: 0;
-  }
+  .header h1 { font-size: 34px; font-weight: 800; margin: 0; }
   .avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: #3a3a3c;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 14px;
-    border: 1.5px solid #555;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: #2c2c2e; display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 14px; border: 1.5px solid #555;
   }
 
-  /* Search bar persis iPhone */
   .search-bar {
-    margin: 14px 20px;
-    background: #1c1c1e;
-    border-radius: 12px;
-    padding: 12px 14px;
-    color: #98989d;
-    font-size: 15px;
-    display: flex;
-    gap: 8px;
-    align-items: center;
+    margin: 12px 20px;
+    background: #1c1c1e; border-radius: 12px;
+    padding: 11px 14px; color: #98989d; font-size: 15px;
+    display: flex; gap: 8px; align-items: center;
   }
   .icon-search {
-    width: 16px;
-    height: 16px;
-    border: 2px solid #98989d;
-    border-radius: 50%;
-    position: relative;
-    flex-shrink: 0;
+    width: 16px; height: 16px; border: 2px solid #98989d;
+    border-radius: 50%; position: relative; flex-shrink: 0;
   }
   .icon-search::after {
-    content: '';
-    position: absolute;
-    width: 2.5px;
-    height: 8px;
-    background: #98989d;
-    border-radius: 2px;
-    transform: rotate(45deg);
-    bottom: -8px;
-    right: -5px;
+    content: ''; position: absolute; width: 2.5px; height: 8px;
+    background: #98989d; border-radius: 2px; transform: rotate(45deg);
+    bottom: -8px; right: -5px;
   }
 
   .grid {
@@ -77,105 +58,87 @@
   }
 
   .tile {
-    height: 110px;
+    height: 120px;
     border-radius: 16px;
-    padding: 14px;
+    padding: 12px 14px;
     font-weight: 700;
     font-size: 17px;
-    display: flex;
-    align-items: flex-end;
-    color: #fff;
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: flex-end;
   }
-  .tile span { position: relative; z-index: 2; }
+  .tile span { position: relative; z-index: 3; line-height: 1.2; }
 
-  .t-radio { background: #e50038; }
-  .t-kpop { background: #ff7aa2; }
-  .t-indo { background: #3b5bff; }
-  .t-pop { background: #ff8fa8; }
-  .t-alt { background: #d9b800; color: #fff; }
-  .t-rock { background: #ff6b35; }
-  .t-rnb { background: #9b6bff; }
-  .t-hiphop { background: #6aa8ff; }
-  .t-dance { background: #00c853; }
-  .t-charts { background: #6b7a00; }
-  .t-sing { background: #ff5a6e; }
-  .t-dj { background: linear-gradient(135deg, #ff00ff, #00ffff, #ffcc00); color: #000; }
+  .tile img.artist {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 62%;
+    object-fit: cover;
+    object-position: top center;
+    filter: grayscale(100%) contrast(1.1);
+    opacity: 0.95;
+    z-index: 1;
+  }
 
-  /* Now Playing persis iPhone */
+  /* Warna persis kayak SS */
+  .t-radio { background: #E4002B; }
+  .t-kpop { background: #FF8FA3; }
+  .t-indo { background: #2A4BFF; }
+  .t-pop { background: #FF9EB5; }
+  .t-alt { background: #D6B700; }
+  .t-rock { background: #FF6A2B; }
+  .t-rnb { background: #8A6DFF; }
+  .t-hiphop { background: #6A9BFF; }
+  .t-dance { background: #00C15A; }
+  .t-charts { background: #5A6B00; }
+  .t-sing { background: #FF6B7A; }
+  .t-dj { background: linear-gradient(90deg, #7A00FF, #00E5FF, #FF0055); }
+
+  .t-sing-icon {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 2;
+    opacity: 0.95;
+  }
+
   .now-playing {
     position: fixed;
-    bottom: 72px;
-    left: 10px;
-    right: 10px;
-    background: #252527;
-    border-radius: 14px;
-    padding: 8px 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    bottom: 72px; left: 10px; right: 10px;
+    background: #252527; border-radius: 14px;
+    padding: 8px 10px; display: flex; align-items: center; gap: 10px;
     z-index: 99;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   }
-  .np-thumb {
-    width: 38px;
-    height: 38px;
-    border-radius: 6px;
-    background: linear-gradient(135deg, #ff8a00, #e52e71);
-    flex-shrink: 0;
-  }
+  .np-thumb { width: 38px; height: 38px; border-radius: 6px; background: linear-gradient(135deg,#ff8a00,#e52e71); flex-shrink: 0; }
   .np-info { flex: 1; min-width: 0; }
   .np-info b { display: block; font-size: 15px; font-weight: 600; }
   .np-info p { margin: 1px 0 0; font-size: 13px; color: #98989d; }
-  .np-play {
-    width: 32px;
-    height: 32px;
-    background: #3a3a3c;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #0a84ff;
-    font-size: 16px;
-  }
+  .np-play { width: 32px; height: 32px; background: #3a3a3c; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #0a84ff; }
 
-  /* Dock / Tab Bar persis iPhone */
   .tabbar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #000;
-    border-top: 0.5px solid #2c2c2e;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px 0 28px;
-    z-index: 100;
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: #000; border-top: 0.5px solid #2c2c2e;
+    display: flex; justify-content: space-around; align-items: center;
+    padding: 10px 0 28px; z-index: 100;
   }
-  .tab-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #98989d;
-    font-size: 10px;
-  }
-  .tab-item.active {
-    color: #fff;
-  }
-  .tab-item svg {
-    width: 24px;
-    height: 24px;
-    margin-bottom: 3px;
-  }
+  .tab-item { display: flex; flex-direction: column; align-items: center; color: #98989d; font-size: 11px; }
+  .tab-item.active { color: #fff; }
+  .tab-item svg { width: 24px; height: 24px; margin-bottom: 3px; }
 </style>
 </head>
 <body>
 
+<div class="statusbar">
+  <span>14.43</span>
+  <span>◫ 📶 📡 🔋</span>
+</div>
+
 <div class="header">
   <h1>Search</h1>
-  <div class="avatar">RL</div>
+  <div class="avatar">NM</div>
 </div>
 
 <div class="search-bar">
@@ -184,18 +147,56 @@
 </div>
 
 <div class="grid">
-  <div class="tile t-radio"><span>Apple Music Radio</span></div>
-  <div class="tile t-kpop"><span>K-Pop</span></div>
-  <div class="tile t-indo"><span>Indonesian Music</span></div>
-  <div class="tile t-pop"><span>Pop</span></div>
-  <div class="tile t-alt"><span>Alternative</span></div>
-  <div class="tile t-rock"><span>Rock</span></div>
-  <div class="tile t-rnb"><span>R&B</span></div>
-  <div class="tile t-hiphop"><span>Hip-Hop/Rap</span></div>
-  <div class="tile t-dance"><span>Dance</span></div>
-  <div class="tile t-charts"><span>Charts</span></div>
-  <div class="tile t-sing"><span>Sing</span></div>
-  <div class="tile t-dj"><span>DJ with Apple Music</span></div>
+  <div class="tile t-radio">
+    <img class="artist" src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&q=80">
+    <span>Apple Music<br>Radio</span>
+  </div>
+  <div class="tile t-kpop">
+    <img class="artist" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&q=80">
+    <span>K-Pop</span>
+  </div>
+  <div class="tile t-indo">
+    <img class="artist" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80">
+    <span>Indonesian<br>Music</span>
+  </div>
+  <div class="tile t-pop">
+    <img class="artist" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&q=80">
+    <span>Pop</span>
+  </div>
+  <div class="tile t-alt">
+    <img class="artist" src="https://images.unsplash.com/photo-1521334884684-d80222895322?w=400&q=80">
+    <span>Alternative</span>
+  </div>
+  <div class="tile t-rock">
+    <img class="artist" src="https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?w=400&q=80">
+    <span>Rock</span>
+  </div>
+  <div class="tile t-rnb">
+    <img class="artist" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80">
+    <span>R&B</span>
+  </div>
+  <div class="tile t-hiphop">
+    <img class="artist" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&q=80">
+    <span>Hip-Hop/Rap</span>
+  </div>
+  <div class="tile t-dance">
+    <img class="artist" src="https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=400&q=80">
+    <span>Dance</span>
+  </div>
+  <div class="tile t-charts">
+    <img class="artist" src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&q=80">
+    <span>Charts</span>
+  </div>
+  <div class="tile t-sing">
+    <div class="t-sing-icon">
+      <svg width="42" height="42" viewBox="0 0 24 24" fill="white"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z"/></svg>
+    </div>
+    <span>Sing</span>
+  </div>
+  <div class="tile t-dj">
+    <img class="artist" src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&q=80" style="width: 100%; height: 100%; opacity: 0.5;">
+    <span>DJ with Apple Music</span>
+  </div>
 </div>
 
 <div class="now-playing">
@@ -209,16 +210,11 @@
 
 <div class="tabbar">
   <div class="tab-item active">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
-      <path d="M3 10.5 L12 3 L21 10.5 V20.5 H14.5 V14.5 H9.5 V20.5 H3 Z"/>
-    </svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 10.5 L12 3 L21 10.5 V20.5 H14.5 V14.5 H9.5 V20.5 H3 Z"/></svg>
     Home
   </div>
   <div class="tab-item">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-      <circle cx="11" cy="11" r="7"/>
-      <line x1="16.5" y1="16.5" x2="21" y2="21"/>
-    </svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
     Search
   </div>
 </div>
