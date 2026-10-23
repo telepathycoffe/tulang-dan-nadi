@@ -355,15 +355,12 @@
   }
 
   function checkPass(){
-    if(code === CORRECT_PASS){
-      document.getElementById('lock').style.display = 'none';
-      code = "";
-      updateDots();
-    } else {
-      alert('Password salah');
-      code = "";
-      updateDots();
-    }
+  if(code === CORRECT_PASS){
+    document.getElementById('lock').style.display = 'none';
+    document.querySelector('.homescreen').style.display = 'block';
+    code = "";
+    updateDots();
+  }
   }
 
   document.getElementById('lock').addEventListener('touchstart', showPasscode);
