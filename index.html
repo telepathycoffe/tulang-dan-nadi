@@ -75,21 +75,15 @@
     text-align:center; display:none; z-index:8;
   }
   .passcode h3 { font-size:17px; margin-bottom:12px; font-weight:600; color:#fff }
-  .dots {
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  margin-bottom:18px;
+  .page-dots .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  display: block;
 }
-#dots .dot {
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  border:1.5px solid #fff;
-  background:rgba(0,0,0,0.35);
-}
-#dots .dot.filled {
-  background:#fff;
+.page-dots .dot.active {
+  background: #fff;
 }
   .pad {
     display:grid; grid-template-columns:repeat(3, 72px);
