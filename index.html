@@ -63,7 +63,7 @@
   .btn svg { width:26px; height:26px; }
   .swipe {
     position:absolute; bottom:16px; width:100%; text-align:center;
-    font-size:13px; font-weight:500; color:#000; opacity:0.6; z-index:10;
+    font-size:13px; font-weight:500; color:#fff; opacity:0.8; z-index:10;
   }
   .home-bar {
     position:absolute; bottom:6px; left:50%; transform:translateX(-50%);
@@ -314,32 +314,46 @@
   setInterval(updateClock, 1000);
 
   let code = "";
-  document.getElementById('lock').addEventListener('touchstart', function(){
+  const CORRECT_PASS = "123456";
+
+  function showPasscode(){
     document.getElementById('passcodeUI').style.display = 'block';
     document.getElementById('swipeText').style.display = 'none';
-  });
-
- let code = "";
-
-function updateDots(){
-  const dots = document.querySelectorAll('#dots .dot');
-  dots.forEach((d, i) => {
-    d.classList.toggle('filled', i < code.length);
-  });
-}
-
-function addDigit(n){
-  if(code.length < 6){
-    code += n;
-    updateDots();
-    if(code.length === 6) checkPass();
   }
-}
 
-function deleteDigit(){
-  code = code.slice(0, -1);
-  updateDots();
-}
+  document.getElementById('lock').addEventListener('touchstart', showPasscode);
+  document.getElementById('lock').addEventListener('click', showPasscode);
+
+  function updateDots(){
+    const dots = document.querySelectorAll('#dots .dot');
+    dots.forEach((d, i) => {
+      d.classList.toggle('filled', i < code.length);
+    });
+  }
+
+  function addDigit(n){
+    if(code.length < 6){
+      code += n;
+      updateDots();
+      if(code.length === 6) checkPass();
+    }
+  }
+
+  function deleteDigit(){
+    code = code.slice(0, -1);
+    updateDots();
+  }
+
+  function checkPass(){
+    if(code === CORRECT_PASS){
+      document.getElementById('lock').style.display = 'none';
+      code = "";
+      updateDots();
+    } else {
+      code = "";
+      updateDots();
+    }
+  }
 </script>
 </body>
 </html>
