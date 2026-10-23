@@ -10,11 +10,11 @@
   html, body { height:100%; background:#000; }
   body { font-family:-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; overflow:hidden; }
      .homescreen {
+  display: none;
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
   z-index: 1;
-  pointer-events: auto;
 }
 .lockscreen {
   position:fixed; inset:0; z-index:10;
@@ -327,46 +327,12 @@
   setInterval(updateClock, 1000);
 
   let code = "";
-const CORRECT_PASS = "199597";
+  const CORRECT_PASS = "199597";
 
-function showPasscode(){
-  document.getElementById('passcodeUI').style.display = 'block';
-  document.getElementById('swipeText').style.display = 'none';
-}
-
-function updateDots(){
-  let dots = document.querySelectorAll('.dot');
-  dots.forEach((dot, i) => {
-    dot.classList.toggle('filled', i < code.length);
-  });
-}
-
-function enterDigit(d){
-  if(code.length < 6){
-    code += d;
-    updateDots();
+  function showPasscode(){
+    document.getElementById('passcodeUI').style.display = 'block';
+    document.getElementById('swipeText').style.display = 'none';
   }
-  if(code.length === 6){
-    if(code === CORRECT_PASS){
-  document.querySelector('.lockscreen').style.display = 'none';
-  document.querySelector('.homescreen').style.display = 'block';
-  document.querySelector('.homescreen').style.pointerEvents = 'auto';
-}
-    } else {
-      alert('Password salah');
-      code = "";
-      updateDots();
-    }
-  }
-}
-
-function deleteDigit(){
-  code = code.slice(0, -1);
-  updateDots();
-}
-
-document.getElementById('lock').addEventListener('touchstart', showPasscode);
-document.getElementById('lock').addEventListener('click', showPasscode);
 
   function updateDots(){
     const dots = document.querySelectorAll('#dots .dot');
@@ -375,9 +341,9 @@ document.getElementById('lock').addEventListener('click', showPasscode);
     });
   }
 
-  function addDigit(n){
+  function enterDigit(d){
     if(code.length < 6){
-      code += n;
+      code += d;
       updateDots();
       if(code.length === 6) checkPass();
     }
@@ -394,10 +360,14 @@ document.getElementById('lock').addEventListener('click', showPasscode);
       code = "";
       updateDots();
     } else {
+      alert('Password salah');
       code = "";
       updateDots();
     }
   }
+
+  document.getElementById('lock').addEventListener('touchstart', showPasscode);
+  document.getElementById('lock').addEventListener('click', showPasscode);
 </script>
 </body>
 </html>
