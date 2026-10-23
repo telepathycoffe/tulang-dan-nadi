@@ -7,15 +7,23 @@
 <style>
   body {
     margin: 0;
-    background: url('homescreen.jpg') no-repeat center / cover;
     height: 100vh;
     font-family: -apple-system, sans-serif;
+    overflow: hidden;
+  }
+  .wallpaper {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
   }
   .grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 25px 10px;
-    padding: 60px 18px;
+    padding: 70px 18px 0 18px;
   }
   .app {
     display: flex;
@@ -24,7 +32,7 @@
     text-decoration: none;
     color: white;
     font-size: 11px;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.9);
   }
   .app img {
     width: 60px;
@@ -32,22 +40,44 @@
     border-radius: 14px;
     margin-bottom: 5px;
   }
+  .dock {
+    position: fixed;
+    bottom: 25px;
+    left: 10px;
+    right: 10px;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 12px 10px;
+  }
+  .dock .app img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0;
+  }
 </style>
 </head>
 <body>
+  <img src="wallhomescreen.jpg" class="wallpaper">
+
   <div class="grid">
     <a class="app" href="whatsapp.html"><img src="whatsapp.png">WhatsApp</a>
-    <a class="app" href="#"><img src="instagram.png">Instagram</a>
-    <a class="app" href="#"><img src="twitter.png">Twitter</a>
-    <a class="app" href="#"><img src="youtube.png">YouTube</a>
-    <a class="app" href="#"><img src="netflix.png">Netflix</a>
-    <a class="app" href="#"><img src="safari.png">Safari</a>
-    <a class="app" href="#"><img src="message.png">Message</a>
-    <a class="app" href="#"><img src="telepon.png">Telepon</a>
-    <a class="app" href="#"><img src="kamera.png">Kamera</a>
     <a class="app" href="#"><img src="photos.png">Photos</a>
-    <a class="app" href="#"><img src="bca.png">BCA</a>
-    <a class="app" href="#"><img src="appmus.png">Music</a>
+    <a class="app" href="#"><img src="twitter.png">X</a>
+    <a class="app" href="#"><img src="instagram.png">Instagram</a>
+    <a class="app" href="#"><img src="kamera.png">Camera</a>
+    <a class="app" href="#"><img src="netflix.png">Netflix</a>
+    <a class="app" href="#"><img src="youtube.png">YouTube</a>
+    <a class="app" href="#"><img src="bca.png">BCA mobile</a>
+  </div>
+
+  <div class="dock">
+    <a class="app" href="#"><img src="telepon.png"></a>
+    <a class="app" href="#"><img src="safari.png"></a>
+    <a class="app" href="#"><img src="message.png"></a>
+    <a class="app" href="whatsapp.html"><img src="appmus.png"></a>
   </div>
 </body>
 </html>
