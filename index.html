@@ -131,6 +131,10 @@
   display: flex; justify-content: space-around; align-items: center;
 }
    .page-dots {
+  position: absolute;
+  bottom: 105px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   gap: 8px;
   justify-content: center;
@@ -140,8 +144,6 @@
   -webkit-backdrop-filter: blur(8px);
   padding: 6px 12px;
   border-radius: 20px;
-  width: fit-content;
-  margin: 12px auto;
 }
 .dot {
   width: 8px;
@@ -204,7 +206,7 @@
     </div>
     <div class="app">
       <div class="app-icon"><img src="kamera.png"></div>
-      <span>Kamera</span>
+      <span>Camera</span>
     </div>
     <div class="app">
       <div class="app-icon"><img src="netflix.png"></div>
@@ -216,7 +218,7 @@
 </div>
      <div class="app">
   <div class="app-icon"><img src="bca.png"></div>
-  <span>BCA Mobile</span>
+  <span>BCA mobile</span>
 </div>
      <div class="page-dots">
   <span class="dot active"></span>
