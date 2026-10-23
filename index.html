@@ -75,9 +75,22 @@
     text-align:center; display:none; z-index:8;
   }
   .passcode h3 { font-size:17px; margin-bottom:12px; font-weight:600; color:#fff }
-  .dots { display:flex; justify-content:center; gap:12px; margin-bottom:18px; }
-  #dots .dot { width:10px; height:10px; border-radius:50%; border:1.5px solid #fff; background:transparent; }
-#dots .dot.filled { background:#fff; }
+  .dots {
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:18px;
+}
+#dots .dot {
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  border:1.5px solid #fff;
+  background:transparent;
+}
+#dots .dot.filled {
+  background:#fff;
+}
   .pad {
     display:grid; grid-template-columns:repeat(3, 72px);
     gap:14px; justify-content:center;
@@ -247,23 +260,30 @@
   </div>
 
   <div class="passcode" id="passcodeUI">
-    <h3>Enter Passcode</h3>
-    <div class="dots" id="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
-    <div class="pad">
-      <button onclick="press(1)">1</button>
-      <button onclick="press(2)">2</button>
-      <button onclick="press(3)">3</button>
-      <button onclick="press(4)">4</button>
-      <button onclick="press(5)">5</button>
-      <button onclick="press(6)">6</button>
-      <button onclick="press(7)">7</button>
-      <button onclick="press(8)">8</button>
-      <button onclick="press(9)">9</button>
-      <button style="background:transparent;"></button>
-      <button onclick="press(0)">0</button>
-      <button style="background:transparent; font-size:22px;" onclick="deleteDigit()">⌫</button>
-    </div>
+  <h3>Enter Passcode</h3>
+  <div class="dots" id="dots">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
   </div>
+  <div class="pad">
+    <button onclick="addDigit(1)">1</button>
+    <button onclick="addDigit(2)">2</button>
+    <button onclick="addDigit(3)">3</button>
+    <button onclick="addDigit(4)">4</button>
+    <button onclick="addDigit(5)">5</button>
+    <button onclick="addDigit(6)">6</button>
+    <button onclick="addDigit(7)">7</button>
+    <button onclick="addDigit(8)">8</button>
+    <button onclick="addDigit(9)">9</button>
+    <button style="background:transparent;"></button>
+    <button onclick="addDigit(0)">0</button>
+    <button style="background:transparent; font-size:22px;" onclick="deleteDigit()">⌫</button>
+  </div>
+</div>
 
   <div class="bottom-btns">
     <div class="btn">
@@ -308,10 +328,18 @@ function updateDots(){
   });
 }
 
+function addDigit(n){
+  if(code.length < 6){
+    code += n;
+    updateDots();
+    if(code.length === 6) checkPass();
+  }
+}
+
 function deleteDigit(){
   code = code.slice(0, -1);
   updateDots();
-  }
+}
 </script>
 </body>
 </html>
