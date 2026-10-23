@@ -130,6 +130,29 @@
   border-radius: 26px;
   display: flex; justify-content: space-around; align-items: center;
 }
+   .page-dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  background: rgba(142,142,147,0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 6px 12px;
+  border-radius: 20px;
+  width: fit-content;
+  margin: 12px auto;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+}
+
+.dot.active {
+  background: white;
+}
 .dock-icon {
   width: 60px;
   height: 60px;
@@ -187,6 +210,18 @@
       <div class="app-icon"><img src="netflix.png"></div>
       <span>Netflix</span>
     </div>
+     <div class="app">
+  <div class="app-icon"><img src="youtube.png"></div>
+  <span>YouTube</span>
+</div>
+     <div class="app">
+  <div class="app-icon"><img src="bca.png"></div>
+  <span>BCA Mobile</span>
+</div>
+     <div class="page-dots">
+  <span class="dot active"></span>
+  <span class="dot"></span>
+</div>
   </div>
 
   <div class="dock">
