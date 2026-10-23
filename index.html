@@ -74,10 +74,10 @@
     position:absolute; left:0; right:0; bottom:90px;
     text-align:center; display:none; z-index:8;
   }
-  .passcode h3 { font-size:17px; margin-bottom:12px; font-weight:600; colour:#fff }
+  .passcode h3 { font-size:17px; margin-bottom:12px; font-weight:600; color:#fff }
   .dots { display:flex; justify-content:center; gap:12px; margin-bottom:18px; }
-  .dot { width:10px; height:10px; border-radius:50%; border:1.5px solid #fff; background:transparent; }
-  .dot.filled { background:#fff; }
+  #dots .dot { width:10px; height:10px; border-radius:50%; border:1.5px solid #fff; background:transparent; }
+#dots .dot.filled { background:#fff; }
   .pad {
     display:grid; grid-template-columns:repeat(3, 72px);
     gap:14px; justify-content:center;
@@ -299,31 +299,18 @@
     document.getElementById('swipeText').style.display = 'none';
   });
 
-  function press(n){
-    if(code.length >= 6) return;
-    code += n;
-    updateDots();
-    if(code.length === 6){
-      if(code === "199597"){
-        document.querySelector(".passcode h3").textContent = "Unlocked!";
-        setTimeout(()=>{ document.getElementById('lock').style.opacity = '0'; document.getElementById('lock').style.transition = 'opacity 0.4s'; }, 400);
-      } else {
-        document.querySelector(".passcode h3").textContent = "Wrong Passcode";
-        setTimeout(()=>{
-          code = "";
-          updateDots();
-          document.querySelector(".passcode h3").textContent = "Enter Passcode";
-        }, 900);
-      }
-    }
-  }
-  function deleteDigit(){
-    code = code.slice(0, -1);
-    updateDots();
-  }
-  function updateDots(){
-    let dots = document.querySelectorAll(".dot");
-    dots.forEach((d,i)=>{ d.classList.toggle("filled", i < code.length); });
+ let code = "";
+
+function updateDots(){
+  const dots = document.querySelectorAll('#dots .dot');
+  dots.forEach((d, i) => {
+    d.classList.toggle('filled', i < code.length);
+  });
+}
+
+function deleteDigit(){
+  code = code.slice(0, -1);
+  updateDots();
   }
 </script>
 </body>
