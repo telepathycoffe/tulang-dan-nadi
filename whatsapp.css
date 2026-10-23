@@ -79,4 +79,25 @@ body { margin: 0; font-family: -apple-system, sans-serif; background: #fff; }
 }
 .wa-container {
   padding-bottom: 110px;
+  position: relative;
+}
+.wa-dock-icon.you-icon {
+  background: none;
+  padding: 0;
+  overflow: hidden;
+}
+.wa-dock-icon.you-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.wa-back {
+  position: absolute;
+  left: 16px;
+  top: 8px;
+  font-size: 32px;
+  color: #008069;
+  text-decoration: none;
+  font-weight: 300;
 }
