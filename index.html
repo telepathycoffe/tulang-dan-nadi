@@ -10,8 +10,11 @@
   html, body { height:100%; background:#000; }
   body { font-family:-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; overflow:hidden; }
      .homescreen {
-  position:fixed; inset:0; z-index:1;
-  background:url('wallhomescreen.jpg') center/cover no-repeat;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 1;
+  pointer-events: auto;
 }
 .lockscreen {
   position:fixed; inset:0; z-index:10;
@@ -202,10 +205,10 @@
 <body>
  <div class="homescreen">
   <div class="apps-grid simple">
-    <div class="app">
-      <div class="app-icon"><img src="whatsapp.png"></div>
-      <span>WhatsApp</span>
-    </div>
+      <a href="whatsapp.html" class="app" style="text-decoration:none; color:inherit;">
+  <div class="app-icon"><img src="whatsapp.png"/></div>
+  <span>WhatsApp</span>
+</a>
     <div class="app">
       <div class="app-icon"><img src="photos.png"></div>
       <span>Photos</span>
@@ -345,7 +348,10 @@ function enterDigit(d){
   }
   if(code.length === 6){
     if(code === CORRECT_PASS){
-      document.querySelector('.lockscreen').style.display = 'none';
+  document.querySelector('.lockscreen').style.display = 'none';
+  document.querySelector('.homescreen').style.display = 'block';
+  document.querySelector('.homescreen').style.pointerEvents = 'auto';
+}
     } else {
       alert('Password salah');
       code = "";
