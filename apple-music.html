@@ -99,7 +99,7 @@
     padding: 8px 10px; display: flex; align-items: center; gap: 10px;
     z-index: 99;
   }
-  .np-thumb { width: 38px; height: 38px; border-radius: 6px; background: linear-gradient(135deg,#ff8a00,#e52e71); flex-shrink: 0; }
+  .np-thumb { width: 38px; height: 38px; border-radius: 6px; background: linear-gradient(135deg,#ff8a00,#e52e71); flex-shrink: 0; }: 0; }
   .np-info { flex: 1; min-width: 0; }
   .np-info b { display: block; font-size: 15px; font-weight: 600; }
   .np-info p { margin: 1px 0 0; font-size: 13px; color: #98989d; }
@@ -183,14 +183,15 @@
 </div>
 
 <div class="now-playing">
-  <div class="np-thumb"></div>
+  <img class="np-thumb" src="lovely.jpg">
   <div class="np-info">
     <b>lovely</b>
     <p>Billie Eilish & Khalid</p>
   </div>
-  <div class="np-play">▶</div>
+ <div class="np-play" id="playBtn">▶</div>
 </div>
-
+<audio id="lovelyAudio" src="lovely.mp3" preload="auto"></audio>
+  
 <div class="tabbar">
   <div class="tab-item active">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 10.5 L12 3 L21 10.5 V20.5 H14.5 V14.5 H9.5 V20.5 H3 Z"/></svg>
@@ -201,6 +202,20 @@
     Search
   </div>
 </div>
-
+</div>
+<script>
+const audio = document.getElementById('lovelyAudio');
+const playBtn = document.getElementById('playBtn');
+playBtn.style.cursor = 'pointer';
+playBtn.onclick = () => {
+if (audio.paused) {
+audio.play();
+playBtn.textContent = '⏸';
+} else {
+audio.pause();
+playBtn.textContent = '▶';
+}
+};
+</script>
 </body>
 </html>
