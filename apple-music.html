@@ -103,8 +103,19 @@
   .np-info { flex: 1; min-width: 0; }
   .np-info b { display: block; font-size: 15px; font-weight: 600; }
   .np-info p { margin: 1px 0 0; font-size: 13px; color: #98989d; }
-  .np-play { width: 32px; height: 32px; background: #3a3a3c; border-radius: 8px; display: flex; color: #0a84ff; }
-
+  .np-play {
+  width: 32px; height: 32px;
+  background: rgba(58,58,60,0.9);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+.np-play svg {
+  width: 18px;
+  height: 18px;
+  fill: #0a84ff;
+  display: block;
+}
   .tabbar {
     position: fixed; bottom: 0; left: 0; right: 0;
     background: #000; border-top: 0.5px solid #2c2c2e;
@@ -188,9 +199,11 @@
     <b>lovely</b>
     <p>Billie Eilish & Khalid</p>
   </div>
- <div class="np-play" id="playBtn">▶</div>
+ <div class="np-play" id="playBtn">
+  <svg id="iconPlay" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+  <svg id="iconPause" viewBox="0 0 24 24" style="display:none"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
 </div>
-<audio id="lovelyAudio" src="lovely.mp3" preload="auto" controls></audio>
+<audio id="lovelyAudio" src="lovely.mp3" preload="auto"></audio>
   
 <div class="tabbar">
   <div class="tab-item active">
@@ -205,17 +218,21 @@
 </div>
 <script>
 const audio = document.getElementById('lovelyAudio');
-const playBtn = document.getElementById('playBtn');
-playBtn.style.cursor = 'pointer';
-playBtn.onclick = () => {
-if (audio.paused) {
-audio.play();
-playBtn.textContent = '⏸';
-} else {
-audio.pause();
-playBtn.textContent = '▶';
-}
-};
+const btn = document.getElementById('playBtn');
+const iconPlay = document.getElementById('iconPlay');
+const iconPause = document.getElementById('iconPause');
+
+btn.addEventListener('click', () => {
+  if (audio.paused) {
+    audio.play();
+    iconPlay.style.display = 'none';
+    iconPause.style.display = 'block';
+  } else {
+    audio.pause();
+    iconPlay.style.display = 'block';
+    iconPause.style.display = 'none';
+  }
+});
 </script>
 </body>
 </html>
