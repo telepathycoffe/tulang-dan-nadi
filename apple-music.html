@@ -93,26 +93,34 @@
   }
 
  .now-playing {
-  position: relative;
+  position: fixed;
+  bottom: 76px;
+  left: 0;
+  right: 0;
+  background: #1c1c1e;
   display: flex;
   align-items: center;
   gap: 12px;
-  padding-right: 56px;
+  padding: 10px 12px;
+  z-index: 99;
 }
-  .np-thumb { width: 38px; height: 38px; border-radius: 6px; background: linear-gradient(135deg,#ff8a00,#e52e71); flex-shrink: 0; }: 0; }
-  .np-info { flex: 1; min-width: 0; }
-  .np-info b { display: block; font-size: 15px; font-weight: 600; }
-  .np-info p { margin: 1px 0 0; font-size: 13px; color: #98989d; }
-  .np-play {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
+.np-thumb {
+  width: 38px; height: 38px;
+  border-radius: 6px;
+  background: linear-gradient(135deg,#ff8a00,#e52e71);
+  flex-shrink: 0;
+}
+.np-info { flex: 1; min-width: 0; }
+.np-info b { display: block; font-size: 15px; font-weight: 600; }
+.np-info p { margin: 1px 0 0; font-size: 13px; color: #98989d; }
+.np-play {
   width: 32px; height: 32px;
   background: rgba(58,58,60,0.9);
   border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer;
+  margin-left: auto;
+  flex-shrink: 0;
 }
 .np-play svg {
   width: 18px;
@@ -203,12 +211,13 @@
     <b>lovely</b>
     <p>Billie Eilish & Khalid</p>
   </div>
- <div class="np-play" id="playBtn">
-  <svg id="iconPlay" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-  <svg id="iconPause" viewBox="0 0 24 24" style="display:none"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
-</div>
-<audio id="lovelyAudio" src="Billie%20Eilish%20-%20lovely%20(Lyrics)%20ft.%20Khalid%20(1).mp3" preload="auto"></audio>
-  
+  <div class="np-play" id="playBtn">
+    <svg id="iconPlay" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    <svg id="iconPause" viewBox="0 0 24 24" style="display:none"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+  </div>
+  <audio id="lovelyAudio" src="Billie%20Eilish%20-%20lovely%20(Lyrics)%20ft.%20Khalid%20(1).mp3" preload="auto"></audio>
+</div> <!-- tutup now-playing di sini -->
+
 <div class="tabbar">
   <div class="tab-item active">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 10.5 L12 3 L21 10.5 V20.5 H14.5 V14.5 H9.5 V20.5 H3 Z"/></svg>
