@@ -93,23 +93,26 @@
   }
 
  .now-playing {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 12px;
-  width: 100%;
+  padding-right: 56px;
 }
   .np-thumb { width: 38px; height: 38px; border-radius: 6px; background: linear-gradient(135deg,#ff8a00,#e52e71); flex-shrink: 0; }: 0; }
   .np-info { flex: 1; min-width: 0; }
   .np-info b { display: block; font-size: 15px; font-weight: 600; }
   .np-info p { margin: 1px 0 0; font-size: 13px; color: #98989d; }
   .np-play {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 32px; height: 32px;
   background: rgba(58,58,60,0.9);
   border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer;
-  margin-left: auto;
-  flex-shrink: 0;
 }
 .np-play svg {
   width: 18px;
