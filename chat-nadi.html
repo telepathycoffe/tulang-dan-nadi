@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>nadi</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#0b141a;height:100vh;display:flex;flex-direction:column;overflow:hidden}
+.header{background:#202c33;color:#e9edef;padding:10px 12px;display:flex;align-items:center;gap:12px;height:60px}
+.header a.back{color:#e9edef;text-decoration:none;font-size:28px;font-weight:300;padding-right:4px}
+.header img{width:38px;height:38px;border-radius:50%;object-fit:cover}
+.header .name{flex:1}
+.header .name b{font-size:15.5px;display:block;line-height:18px}
+.header .name span{font-size:12.5px;color:#8696a0}
+.header .icons{display:flex;gap:18px;font-size:18px;opacity:0.9}
+.chat-bg{flex:1;overflow-y:auto;padding:12px 8px 90px 8px;display:flex;flex-direction:column;gap:2px;background:#0b141a;}
+.date-badge{background:#182533;color:#8696a0;font-size:12.5px;padding:5px 12px;border-radius:7.5px;width:fit-content;margin:10px auto;}
+.msg{max-width:78%;padding:6px 7px 4px 8px;border-radius:8px;margin:1px 0;font-size:14.4px;line-height:19px;position:relative;box-shadow:0 1px 0.5px rgba(0,0,0,0.2);word-wrap:break-word}
+.msg.left{background:#202c33;color:#e9edef;border-top-left-radius:0}
+.msg.right{background:#005c4b;color:#e9edef;border-top-right-radius:0;margin-left:auto}
+.time{font-size:10.5px;color:#8696a0;float:right;margin-left:10px;margin-top:5px}
+.msg.right .time{color:#53bdeb}
+.voice{padding:8px 10px}
+.voice-row{display:flex;align-items:center;gap:10px}
+.voice-icon{width:36px;height:36px;background:#00a884;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px}
+.footer{position:fixed;bottom:0;left:0;right:0;background:#202c33;padding:6px 8px;display:flex;align-items:center;gap:6px;height:50px}
+.footer .btn{color:#8696a0;font-size:22px;padding:4px}
+.footer input{flex:1;background:#2a3942;border:none;border-radius:21px;padding:10px 14px;color:#fff;outline:none;font-size:15px}
+</style>
+</head>
+<body>
+<div class="header">
+  <a href="whatsapp.html" class="back">‹</a>
+  <img src="nadi.jpg" onerror="this.src='https://i.pravatar.cc/100?img=5'">
+  <div class="name"><b>nadi🔒</b><span>online</span></div>
+  <div class="icons"><span>📹</span><span>📞</span></div>
+</div>
+<div class="chat-bg">
+  <div class="date-badge">Today</div>
+  <div class="msg left">Jadi mau gimana? <span class="time">12.40</span></div>
+  <div class="msg left">Jangan ngeluh capek karena aku juga sama capeknya kayak kamu <span class="time">12.40</span></div>
+  <div class="msg left">Tadi kamu bilang mau break? Iya? Itu mau kamu kan? <span class="time">12.40</span></div>
+  <div class="msg left">Coba jawab <span class="time">12.40</span></div>
+  <div class="msg left voice"><div class="voice-row"><div class="voice-icon">📞</div><div><div style="font-size:14px;">Voice call</div><div style="font-size:11px;color:#8696a0;">15 min • Missed</div></div></div><span class="time">12.41</span></div>
+  <div class="msg left">Gak semuanya harus selalu aku turutin Lang. Aku juga manusia, punya hati, punya perasaan <span class="time">12.57</span></div>
+  <div class="msg left">Tapi aku mau deh turutin mau kamu lagi kali ini <span class="time">12.57</span></div>
+  <div class="msg left">Kita break dulu <span class="time">12.58</span></div>
+  <div class="msg left">Kamu intropeksi diri, aku pun sama mau intropeksi diri <span class="time">12.59</span></div>
+  <div class="msg left">Jalan masing2 dulu biar ke depannya lebih baik <span class="time">12.59</span></div>
+  <div class="msg left">Dan aku tetep di sini kalo kamu udah lebih baik <span class="time">13.01</span></div>
+  <div class="msg left">Aku sayang kamu🤍 <span class="time">13.01 ✓✓</span></div>
+  <div class="msg right">oke <span class="time">13.02 ✓✓</span></div>
+</div>
+<div class="footer">
+  <span class="btn">+</span>
+  <input type="text" placeholder="Message">
+  <span class="btn">📷</span>
+  <span class="btn">🎤</span>
+</div>
+</body>
+</html>
