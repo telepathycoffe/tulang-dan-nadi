@@ -292,10 +292,13 @@
     <button class="seg-btn">Library</button>
   </div>
 
-  <div class="recent-head">
-    <span>Recently Searched</span>
-    <button>Clear</button>
+  <div id="recentCtb" onclick="playCtb()" style="display:flex; align-items:center; gap:12px; padding:12px; cursor:pointer;">
+  <img src="ctb.jpg" style="width:48px; height:48px; border-radius:6px;">
+  <div>
+    <p style="margin:0; color:white;">Cinta Tak Bersyarat</p>
+    <span style="color:gray; font-size:13px;">Song · Element</span>
   </div>
+</div>
 
   <div class="recent-item">
     <img class="recent-thumb" src="ctb.jpg">
@@ -347,30 +350,18 @@ if(mainSearchBar) mainSearchBar.addEventListener('click', openSearch);
 if(searchTab) searchTab.addEventListener('click', openSearch);
 if(closeSearch) closeSearch.addEventListener('click', closeSearchFn);
 
-  const recentCtb = document.getElementById('recentCtb');
 const miniTitle = document.getElementById('miniTitle');
 const miniArtist = document.getElementById('miniArtist');
 const miniThumb = document.getElementById('miniThumb');
 
-if (recentCtb) {
-  recentCtb.addEventListener('click', () => {
+  function playCtb(){
     audio.src = 'Element - Cinta Tak Bersyarat.mp3';
-    
-    if (miniTitle) miniTitle.textContent = 'Cinta Tak Bersyarat';
-    if (miniArtist) miniArtist.textContent = 'Element';
-    if (miniThumb) {
-      miniThumb.src = 'ctb.jpg';
-      miniThumb.style.display = 'block';
-    }
-
     audio.play();
-    if (iconPlay && iconPause) {
-      iconPlay.style.display = 'none';
-      iconPause.style.display = 'block';
-    }
-    searchScreen.classList.remove('open');
-  });
-}
+    document.getElementById('miniTitle').textContent = 'Cinta Tak Bersyarat';
+    document.getElementById('miniArtist').textContent = 'Element';
+    document.getElementById('miniThumb').src = 'ctb.jpg';
+    document.getElementById('miniThumb').style.display = 'block';
+  }
 </script>
 </body>
 </html>
