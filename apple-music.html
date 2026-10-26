@@ -346,6 +346,30 @@ function closeSearchFn(){ searchScreen.classList.remove('open'); }
 if(mainSearchBar) mainSearchBar.addEventListener('click', openSearch);
 if(searchTab) searchTab.addEventListener('click', openSearch);
 if(closeSearch) closeSearch.addEventListener('click', closeSearchFn);
+
+  const recentCtb = document.getElementById('recentCtb');
+const miniTitle = document.getElementById('miniTitle');
+const miniArtist = document.getElementById('miniArtist');
+const miniThumb = document.getElementById('miniThumb');
+
+if (recentCtb) {
+  recentCtb.addEventListener('click', () => {
+    audio.src = 'Element - Cinta Tak Bersyarat.mp3';
+    
+    if (miniTitle) miniTitle.textContent = 'Cinta Tak Bersyarat';
+    if (miniArtist) miniArtist.textContent = 'Element';
+    if (miniThumb) {
+      miniThumb.src = 'ctb.jpg';
+      miniThumb.style.display = 'block';
+    }
+
+    audio.play();
+    if (iconPlay && iconPause) {
+      iconPlay.style.display = 'none';
+      iconPause.style.display = 'block';
+    }
+    searchScreen.classList.remove('open');
+  });
 </script>
 </body>
 </html>
