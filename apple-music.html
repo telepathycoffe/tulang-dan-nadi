@@ -293,21 +293,13 @@
   </div>
 
   <div id="recentCtb" onclick="playCtb()" style="display:flex; align-items:center; gap:12px; padding:12px; cursor:pointer;">
-  <img src="ctb.jpg" style="width:48px; height:48px; border-radius:6px;">
-  <div>
-    <p style="margin:0; color:white;">Cinta Tak Bersyarat</p>
-    <span style="color:gray; font-size:13px;">Song · Element</span>
-  </div>
-</div>
-
-  <div class="recent-item">
-    <img class="recent-thumb" src="ctb.jpg">
-    <div class="recent-info">
-      <b>Cinta Tak Bersyarat</b>
-      <p>Song · Element</p>
+    <img src="ctb.jpg" style="width:48px; height:48px; border-radius:6px;">
+    <div>
+      <p style="margin:0; color:white;">Cinta Tak Bersyarat</p>
+      <span style="color:gray; font-size:13px;">Song · Element</span>
     </div>
-    <span class="dots">...</span>
   </div>
+
 </div>
 
 <div class="tabbar">
@@ -320,12 +312,23 @@
     Search
   </div>
 </div>
-</div>
+
 <script>
 const audio = document.getElementById('lovelyAudio');
 const btn = document.getElementById('playBtn');
 const iconPlay = document.getElementById('iconPlay');
 const iconPause = document.getElementById('iconPause');
+const searchScreen = document.getElementById('searchScreen');
+const closeSearch = document.getElementById('closeSearch');
+const mainSearchBar = document.querySelector('.search-bar');
+const searchTab = document.querySelectorAll('.tab-item')[1];
+
+function openSearch(){ searchScreen.classList.add('open'); }
+function closeSearchFn(){ searchScreen.classList.remove('open'); }
+
+if(mainSearchBar) mainSearchBar.addEventListener('click', openSearch);
+if(searchTab) searchTab.addEventListener('click', openSearch);
+if(closeSearch) closeSearch.addEventListener('click', closeSearchFn);
 
 btn.addEventListener('click', () => {
   if (audio.paused) {
@@ -338,30 +341,24 @@ btn.addEventListener('click', () => {
     iconPause.style.display = 'none';
   }
 });
-  const searchScreen = document.getElementById('searchScreen');
-const closeSearch = document.getElementById('closeSearch');
-const mainSearchBar = document.querySelector('.search-bar');
-const searchTab = document.querySelectorAll('.tab-item')[1];
 
-function openSearch(){ searchScreen.classList.add('open'); }
-function closeSearchFn(){ searchScreen.classList.remove('open'); }
+function playCtb(){
+  const titleEl = document.querySelector('.np-info b');
+  const artistEl = document.querySelector('.np-info p');
+  const thumbEl = document.querySelector('.np-thumb');
 
-if(mainSearchBar) mainSearchBar.addEventListener('click', openSearch);
-if(searchTab) searchTab.addEventListener('click', openSearch);
-if(closeSearch) closeSearch.addEventListener('click', closeSearchFn);
+  audio.src = 'Element - Cinta Tak Bersyarat.mp3';
+  audio.play();
+  
+  if(titleEl) titleEl.textContent = 'Cinta Tak Bersyarat';
+  if(artistEl) artistEl.textContent = 'Element';
+  if(thumbEl) thumbEl.src = 'ctb.jpg';
 
-const miniTitle = document.getElementById('miniTitle');
-const miniArtist = document.getElementById('miniArtist');
-const miniThumb = document.getElementById('miniThumb');
-
-  function playCtb(){
-    audio.src = 'Element - Cinta Tak Bersyarat.mp3';
-    audio.play();
-    document.getElementById('miniTitle').textContent = 'Cinta Tak Bersyarat';
-    document.getElementById('miniArtist').textContent = 'Element';
-    document.getElementById('miniThumb').src = 'ctb.jpg';
-    document.getElementById('miniThumb').style.display = 'block';
-  }
+  // tutup search biar dock home & search + player keliatan lagi
+  searchScreen.classList.remove('open');
+  iconPlay.style.display = 'none';
+  iconPause.style.display = 'block';
+}
 </script>
 </body>
 </html>
