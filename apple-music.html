@@ -102,7 +102,7 @@
   align-items: center;
   gap: 12px;
   padding: 10px 12px;
-  z-index: 99;
+   z-index: 250; 
 }
 .np-thumb {
   width: 38px; height: 38px;
@@ -132,7 +132,7 @@
     position: fixed; bottom: 0; left: 0; right: 0;
     background: #000; border-top: 0.5px solid #2c2c2e;
     display: flex; justify-content: space-around; align-items: center;
-    padding: 10px 0 28px; z-index: 100;
+     padding: 10px 0 28px; z-index: 251; 
   }
   .tab-item { display: flex; flex-direction: column; align-items: center; color: #98989d; font-size: 11px; }
   .tab-item.active { color: #fff; }
@@ -354,8 +354,7 @@ function playCtb(){
   if(artistEl) artistEl.textContent = 'Element';
   if(thumbEl) thumbEl.src = 'ctb.jpg';
 
-  // tutup search biar dock home & search + player keliatan lagi
-  searchScreen.classList.remove('open');
+  // JANGAN TUTUP SEARCH, BIAR PLAYER MUNCUL DI DALAM SEARCH
   iconPlay.style.display = 'none';
   iconPause.style.display = 'block';
 }
